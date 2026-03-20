@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import TopNav from "@/components/top-nav";
 import LearningProfileCard from "@/components/learning-profile-card";
+import BottomStatusBar from "@/components/bottom-status-bar";
 
 function getLearnResult(input: string) {
   const text = input.trim();
@@ -70,6 +71,11 @@ export default function LearnPage() {
 
   const result = useMemo(() => getLearnResult(submittedText), [submittedText]);
 
+  const currentStage = result ? result.stage : "学习推进";
+  const currentNextStep = result
+    ? result.nextAction
+    : "等待输入卡点后生成下一步";
+
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100">
       <div className="mx-auto max-w-5xl px-6 py-16">
@@ -122,9 +128,9 @@ export default function LearnPage() {
 
           <LearningProfileCard
             theme="AI 智能体搭建"
-            stage={result ? result.stage : "学习推进"}
+            stage={currentStage}
             goal="识别当前卡点，并给出最小可执行下一步"
-            nextStep={result ? result.nextAction : "等待输入卡点后生成下一步"}
+            nextStep={currentNextStep}
             latestResult={result ? result.diagnosis : "等待输入后生成诊断结果"}
           />
         </div>
@@ -169,6 +175,12 @@ export default function LearnPage() {
             </div>
           )}
         </section>
+
+        <BottomStatusBar
+          moduleName="学习推进"
+          stage={currentStage}
+          nextStep={currentNextStep}
+        />
       </div>
     </main>
   );

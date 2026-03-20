@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import TopNav from "@/components/top-nav";
 import LearningProfileCard from "@/components/learning-profile-card";
+import BottomStatusBar from "@/components/bottom-status-bar";
 
 function getVerifyResult(input: string) {
   const text = input.trim();
@@ -80,7 +81,7 @@ function getVerifyResult(input: string) {
       "当前输入信息量有限，能看出你在尝试表达，但还不足以证明更高层级掌握。",
     nextStep:
       "下一步请用自己的话解释一次，或者给出一个小场景，说明你会怎么用这个知识。",
-  };
+    };
 }
 
 export default function VerifyPage() {
@@ -88,6 +89,11 @@ export default function VerifyPage() {
   const [submittedText, setSubmittedText] = useState("");
 
   const result = useMemo(() => getVerifyResult(submittedText), [submittedText]);
+
+  const currentStage = result ? result.level : "验证复盘";
+  const currentNextStep = result
+    ? result.nextStep
+    : "等待输入后生成掌握层级与补强建议";
 
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100">
@@ -141,9 +147,9 @@ export default function VerifyPage() {
 
           <LearningProfileCard
             theme="AI 智能体搭建"
-            stage="验证复盘"
+            stage={currentStage}
             goal="判断真实掌握层级，并指出下一步最该补的部分"
-            nextStep={result ? result.nextStep : "等待输入后生成补强建议"}
+            nextStep={currentNextStep}
             latestResult={result ? result.level : "等待输入后生成掌握层级判断"}
           />
         </div>
@@ -188,6 +194,12 @@ export default function VerifyPage() {
             </div>
           )}
         </section>
+
+        <BottomStatusBar
+          moduleName="验证复盘"
+          stage={currentStage}
+          nextStep={currentNextStep}
+        />
       </div>
     </main>
   );

@@ -1,48 +1,30 @@
-type LearningProfileCardProps = {
-  theme: string;
-  stage: string;
-  goal: string;
-  nextStep: string;
-  latestResult: string;
+import Link from "next/link";
+
+type TopNavProps = {
+  current: "home" | "clarify" | "learn" | "verify";
 };
 
-export default function LearningProfileCard({
-  theme,
-  stage,
-  goal,
-  nextStep,
-  latestResult,
-}: LearningProfileCardProps) {
+function getItemClass(active: boolean) {
+  return active
+    ? "rounded-xl bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-900"
+    : "rounded-xl px-3 py-2 text-sm text-zinc-300 transition hover:bg-zinc-800 hover:text-zinc-100";
+}
+
+export default function TopNav({ current }: TopNavProps) {
   return (
-    <aside className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-      <div className="mb-4 text-sm text-zinc-400">学习档案</div>
-
-      <div className="space-y-4">
-        <div className="rounded-xl bg-zinc-800/60 p-4">
-          <div className="text-sm text-zinc-400">当前学习主题</div>
-          <div className="mt-1 font-medium text-zinc-100">{theme}</div>
-        </div>
-
-        <div className="rounded-xl bg-zinc-800/60 p-4">
-          <div className="text-sm text-zinc-400">当前阶段</div>
-          <div className="mt-1 font-medium text-zinc-100">{stage}</div>
-        </div>
-
-        <div className="rounded-xl bg-zinc-800/60 p-4">
-          <div className="text-sm text-zinc-400">当前目标</div>
-          <div className="mt-1 font-medium text-zinc-100">{goal}</div>
-        </div>
-
-        <div className="rounded-xl bg-zinc-800/60 p-4">
-          <div className="text-sm text-zinc-400">当前下一步</div>
-          <div className="mt-1 font-medium text-zinc-100">{nextStep}</div>
-        </div>
-
-        <div className="rounded-xl bg-zinc-800/60 p-4">
-          <div className="text-sm text-zinc-400">最近一次判断</div>
-          <div className="mt-1 font-medium text-zinc-100">{latestResult}</div>
-        </div>
-      </div>
-    </aside>
+    <div className="mb-8 flex flex-wrap items-center gap-3 rounded-2xl border border-zinc-800 bg-zinc-900/80 p-3">
+      <Link href="/" className={getItemClass(current === "home")}>
+        首页
+      </Link>
+      <Link href="/clarify" className={getItemClass(current === "clarify")}>
+        需求澄清
+      </Link>
+      <Link href="/learn" className={getItemClass(current === "learn")}>
+        学习推进
+      </Link>
+      <Link href="/verify" className={getItemClass(current === "verify")}>
+        验证复盘
+      </Link>
+    </div>
   );
 }
