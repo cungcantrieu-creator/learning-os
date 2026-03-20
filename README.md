@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Learning OS（学习操作系统）
 
-## Getting Started
+一个帮助你完成：
 
-First, run the development server:
+👉 目标澄清 → 学习推进 → 验证复盘
+
+的学习操作系统原型。
+
+---
+
+## 🌟 项目简介
+
+Learning OS 不是用来“回答问题”的工具，而是：
+
+👉 帮你管理整个学习过程
+
+它模拟了 3 个核心智能体：
+
+* Agent 1：需求澄清（Clarify）
+* Agent 2：学习推进（Learn）
+* Agent 3：验证复盘（Verify）
+
+---
+
+## 🧠 三个核心模块
+
+### 1️⃣ 需求澄清（/clarify）
+
+解决问题：
+👉 “我想学，但说不清我要学什么”
+
+功能：
+
+* 把模糊目标压缩为清晰方向
+* 提出关键澄清问题
+* 明确下一步该收敛什么
+
+---
+
+### 2️⃣ 学习推进（/learn）
+
+解决问题：
+👉 “我在学，但卡住了”
+
+功能：
+
+* 识别卡点类型（执行 / 阅读 / 结构）
+* 给出最小可执行动作
+* 告诉你“现在不要做什么”
+
+---
+
+### 3️⃣ 验证复盘（/verify）
+
+解决问题：
+👉 “我到底学会没有？”
+
+功能：
+
+* 判断掌握层级（复述 / 解释 / 迁移）
+* 指出未掌握部分
+* 给出下一步补强建议
+
+---
+
+## 🧩 当前产品能力（MVP）
+
+已实现：
+
+* 首页导航
+* 三模块页面
+* 规则驱动的智能体模拟
+* 学习档案卡（右侧）
+* 底部状态条（全局状态感）
+* GitHub Pages 在线访问
+
+---
+
+## 🚀 本地运行方式
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+打开：
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000/learning-os
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🌐 在线地址
 
-To learn more about Next.js, take a look at the following resources:
+👉 当前线上版本：
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+https://cungcantrieu-creator.github.io/learning-os/
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛣️ 下一步规划
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Phase 1（当前）
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* 页面结构完成
+* 三智能体流程跑通
+* 基础交互完成
+
+---
+
+### Phase 2（下一阶段）
+
+* 接入真实大模型（OpenAI / 其他 API）
+* 替换规则判断为真实 Agent
+* 引入上下文记忆
+
+---
+
+### Phase 3（产品化）
+
+* 用户系统
+* 学习记录
+* 会话历史
+* 长期学习路径管理
+
+---
+
+## 🎯 项目定位
+
+这是一个：
+
+👉 AI 学习流程操作系统（Learning OS）
+
+而不是：
+
+❌ 问答工具
+❌ 知识库
+❌ 普通 AI 聊天
+
+---
+
+## 👤 作者
+
+* cungcantrieu
+
+---
+
+## 📌 当前状态
+
+👉 已完成 MVP，可演示核心学习流程
