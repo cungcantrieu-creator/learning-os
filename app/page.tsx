@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100">
@@ -15,20 +17,38 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          <button className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 text-left transition hover:border-zinc-600 hover:bg-zinc-800">
+          <Link
+            href="/clarify"
+            className="block rounded-2xl border border-zinc-800 bg-zinc-900 p-6 text-left transition hover:border-zinc-600 hover:bg-zinc-800"
+          >
             <div className="mb-3 text-sm text-zinc-400">入口 1</div>
             <div className="text-xl font-semibold">我想学点东西，但说不清</div>
-          </button>
+            <p className="mt-3 text-sm leading-6 text-zinc-300">
+              先帮你把模糊目标压缩成清晰目标。
+            </p>
+          </Link>
 
-          <button className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 text-left transition hover:border-zinc-600 hover:bg-zinc-800">
+          <Link
+            href="/learn"
+            className="block rounded-2xl border border-zinc-800 bg-zinc-900 p-6 text-left transition hover:border-zinc-600 hover:bg-zinc-800"
+          >
             <div className="mb-3 text-sm text-zinc-400">入口 2</div>
             <div className="text-xl font-semibold">我已经在学，但卡住了</div>
-          </button>
+            <p className="mt-3 text-sm leading-6 text-zinc-300">
+              直接帮你定位卡点，并给出下一步。
+            </p>
+          </Link>
 
-          <button className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 text-left transition hover:border-zinc-600 hover:bg-zinc-800">
+          <Link
+            href="/verify"
+            className="block rounded-2xl border border-zinc-800 bg-zinc-900 p-6 text-left transition hover:border-zinc-600 hover:bg-zinc-800"
+          >
             <div className="mb-3 text-sm text-zinc-400">入口 3</div>
             <div className="text-xl font-semibold">我想确认自己学会没有</div>
-          </button>
+            <p className="mt-3 text-sm leading-6 text-zinc-300">
+              帮你区分“看过了”和“真的掌握了”。
+            </p>
+          </Link>
         </div>
 
         <div className="mt-12 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
