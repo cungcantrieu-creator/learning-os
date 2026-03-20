@@ -1,9 +1,12 @@
 import Link from "next/link";
+import TopNav from "@/components/top-nav";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100">
       <div className="mx-auto max-w-5xl px-6 py-16">
+        <TopNav current="home" />
+
         <div className="mb-12">
           <p className="mb-3 text-sm text-zinc-400">Learning OS</p>
           <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
@@ -24,7 +27,7 @@ export default function Home() {
             <div className="mb-3 text-sm text-zinc-400">入口 1</div>
             <div className="text-xl font-semibold">我想学点东西，但说不清</div>
             <p className="mt-3 text-sm leading-6 text-zinc-300">
-              先帮你把模糊目标压缩成清晰目标。
+              适合目标模糊、方向太宽、自己也不知道该怎么描述的人。
             </p>
           </Link>
 
@@ -35,7 +38,7 @@ export default function Home() {
             <div className="mb-3 text-sm text-zinc-400">入口 2</div>
             <div className="text-xl font-semibold">我已经在学，但卡住了</div>
             <p className="mt-3 text-sm leading-6 text-zinc-300">
-              直接帮你定位卡点，并给出下一步。
+              适合已经开始学，但不知道下一步、看不懂材料、分不清重点的人。
             </p>
           </Link>
 
@@ -46,7 +49,7 @@ export default function Home() {
             <div className="mb-3 text-sm text-zinc-400">入口 3</div>
             <div className="text-xl font-semibold">我想确认自己学会没有</div>
             <p className="mt-3 text-sm leading-6 text-zinc-300">
-              帮你区分“看过了”和“真的掌握了”。
+              适合已经学过一轮，想验证掌握层级、识别薄弱点的人。
             </p>
           </Link>
         </div>

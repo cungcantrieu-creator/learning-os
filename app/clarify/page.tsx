@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import TopNav from "@/components/top-nav";
 
 function getClarifyResult(input: string) {
   const text = input.trim();
@@ -78,14 +78,7 @@ export default function ClarifyPage() {
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100">
       <div className="mx-auto max-w-5xl px-6 py-16">
-        <div className="mb-8">
-          <Link
-            href="/"
-            className="text-sm text-zinc-400 transition hover:text-zinc-200"
-          >
-            ← 返回首页
-          </Link>
-        </div>
+        <TopNav current="clarify" />
 
         <div className="mb-10">
           <p className="mb-3 text-sm text-zinc-400">Learning OS / 需求澄清</p>
