@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import TopNav from "@/components/top-nav";
+import LearningProfileCard from "@/components/learning-profile-card";
 
 function getLearnResult(input: string) {
   const text = input.trim();
@@ -119,23 +120,13 @@ export default function LearnPage() {
             </div>
           </section>
 
-          <aside className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-            <div className="mb-4 text-sm text-zinc-400">当前状态</div>
-            <div className="space-y-4">
-              <div className="rounded-xl bg-zinc-800/60 p-4">
-                <div className="text-sm text-zinc-400">当前模块</div>
-                <div className="mt-1 font-medium">学习推进</div>
-              </div>
-              <div className="rounded-xl bg-zinc-800/60 p-4">
-                <div className="text-sm text-zinc-400">当前目标</div>
-                <div className="mt-1 font-medium">定位卡点并给出下一步</div>
-              </div>
-              <div className="rounded-xl bg-zinc-800/60 p-4">
-                <div className="text-sm text-zinc-400">默认策略</div>
-                <div className="mt-1 font-medium">先缩小任务，再推进</div>
-              </div>
-            </div>
-          </aside>
+          <LearningProfileCard
+            theme="AI 智能体搭建"
+            stage={result ? result.stage : "学习推进"}
+            goal="识别当前卡点，并给出最小可执行下一步"
+            nextStep={result ? result.nextAction : "等待输入卡点后生成下一步"}
+            latestResult={result ? result.diagnosis : "等待输入后生成诊断结果"}
+          />
         </div>
 
         <section className="mt-8 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">

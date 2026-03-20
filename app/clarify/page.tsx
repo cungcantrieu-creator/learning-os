@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import TopNav from "@/components/top-nav";
+import LearningProfileCard from "@/components/learning-profile-card";
 
 function getClarifyResult(input: string) {
   const text = input.trim();
@@ -125,27 +126,13 @@ export default function ClarifyPage() {
             </div>
           </section>
 
-          <aside className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-            <div className="mb-4 text-sm text-zinc-400">当前状态</div>
-            <div className="space-y-4">
-              <div className="rounded-xl bg-zinc-800/60 p-4">
-                <div className="text-sm text-zinc-400">当前模块</div>
-                <div className="mt-1 font-medium">需求澄清</div>
-              </div>
-              <div className="rounded-xl bg-zinc-800/60 p-4">
-                <div className="text-sm text-zinc-400">当前目标</div>
-                <div className="mt-1 font-medium">
-                  把模糊学习意图压缩成清晰目标
-                </div>
-              </div>
-              <div className="rounded-xl bg-zinc-800/60 p-4">
-                <div className="text-sm text-zinc-400">下一步</div>
-                <div className="mt-1 font-medium">
-                  明确方向、动机与目标层级
-                </div>
-              </div>
-            </div>
-          </aside>
+          <LearningProfileCard
+            theme="待明确"
+            stage="需求澄清"
+            goal="把模糊学习意图压缩成清晰目标"
+            nextStep="明确方向、动机与目标层级"
+            latestResult={result ? result.understanding : "等待输入后生成澄清结果"}
+          />
         </div>
 
         <section className="mt-8 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">

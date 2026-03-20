@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import TopNav from "@/components/top-nav";
+import LearningProfileCard from "@/components/learning-profile-card";
 
 function getVerifyResult(input: string) {
   const text = input.trim();
@@ -138,23 +139,13 @@ export default function VerifyPage() {
             </div>
           </section>
 
-          <aside className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-            <div className="mb-4 text-sm text-zinc-400">当前状态</div>
-            <div className="space-y-4">
-              <div className="rounded-xl bg-zinc-800/60 p-4">
-                <div className="text-sm text-zinc-400">当前模块</div>
-                <div className="mt-1 font-medium">验证复盘</div>
-              </div>
-              <div className="rounded-xl bg-zinc-800/60 p-4">
-                <div className="text-sm text-zinc-400">当前目标</div>
-                <div className="mt-1 font-medium">判断真实掌握层级</div>
-              </div>
-              <div className="rounded-xl bg-zinc-800/60 p-4">
-                <div className="text-sm text-zinc-400">默认策略</div>
-                <div className="mt-1 font-medium">先分层判断，再给修正建议</div>
-              </div>
-            </div>
-          </aside>
+          <LearningProfileCard
+            theme="AI 智能体搭建"
+            stage="验证复盘"
+            goal="判断真实掌握层级，并指出下一步最该补的部分"
+            nextStep={result ? result.nextStep : "等待输入后生成补强建议"}
+            latestResult={result ? result.level : "等待输入后生成掌握层级判断"}
+          />
         </div>
 
         <section className="mt-8 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
